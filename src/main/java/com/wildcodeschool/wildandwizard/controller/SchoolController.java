@@ -16,8 +16,10 @@ import java.util.Optional;
 public class SchoolController {
 
     // TODO : get school repository by dependency injection
-    @Autowired
-    private SchoolRepository repository;
+    private final SchoolRepository repository;
+    public SchoolController(SchoolRepository repositoryInjected){
+        this.repository = repositoryInjected;
+    }
 
     @GetMapping("/schools")
     public String getAll(Model model) {
